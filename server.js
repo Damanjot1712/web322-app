@@ -26,28 +26,21 @@ app.get("/managers", (req, res)=>{
     })
 });
 
-app.get("/employees", (req, res) =>{
+app.get("/employees", (req, res)=>{
     dataservice.getAllEmployees().then((data) =>{
         res.json({data});
-    }).catch((err) => {
+    }).catch((err)=>{
         res.json({message: err});
     })
 });
-
-app.get("/departments", (req, res) => {
-    dataservice.getDepartments().then((data) => {
+app.get("/departments", (req, res)=>{
+    dataservice.getDepartments().then((data)=>{
         res.json({data});
     }).catch((err) => {
         res.json({message: err});
     })
 });
 
-app.use((req, res) => {
+app.use((req, res)=>{
     res.status(404).end('404 PAGE NOT FOUND');
-});
-
-dataservice.initialize().then(() => {
-    app.listen(HTTP_PORT, onHttpStart());
-}).catch (() => {
-    console.log('promises unfulfilled');
 });
