@@ -44,3 +44,9 @@ app.get("/departments", (req, res)=>{
 app.use((req, res)=>{
     res.status(404).end('404 PAGE NOT FOUND');
 });
+
+dataservice.initialize().then(() => {
+    app.listen(HTTP_PORT, onHttpStart());
+}).catch (() => {
+    console.log('promises not stisfied');
+});
