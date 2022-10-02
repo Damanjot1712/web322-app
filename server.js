@@ -18,13 +18,6 @@ app.get('/home', (req, res)=>{
 app.get('/about', (req, res)=>{
     res.sendFile(path.join(__dirname + "/views/about.html"));
 });
-app.get("/managers", (req, res)=>{
-    dataservice.getManagers().then((data) =>{
-        res.json({data});
-    }).catch((err) => {
-        res.json({message: err});
-    })
-});
 
 app.get("/employees", (req, res)=>{
     dataservice.getAllEmployees().then((data) =>{
@@ -33,6 +26,14 @@ app.get("/employees", (req, res)=>{
         res.json({message: err});
     })
 });
+app.get("/managers", (req, res)=>{
+    dataservice.getManagers().then((data) =>{
+        res.json({data});
+    }).catch((err) => {
+        res.json({message: err});
+    })
+});
+
 app.get("/departments", (req, res)=>{
     dataservice.getDepartments().then((data)=>{
         res.json({data});
