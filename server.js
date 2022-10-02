@@ -40,7 +40,6 @@ app.get("/departments", (req, res)=>{
         res.json({message: err});
     })
 });
-
 app.use((req, res)=>{
     res.status(404).end('404 PAGE NOT FOUND');
 });
