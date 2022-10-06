@@ -3,7 +3,8 @@ var departments = [];
 var employees = [];
 
 
-exports.initialize = () =>{
+exports.initialize = () =>
+{
     return new Promise ((resolve, reject) =>{
         file.readFile('./data/departments.json', (err,data)=> {
             if (err) {
@@ -13,11 +14,14 @@ exports.initialize = () =>{
                 departments = JSON.parse(data);
             }
         });
-        file.readFile('./data/employees.json', (err,data) =>{
-            if (err) {
+        file.readFile('./data/employees.json', (err,data) =>
+        {
+            if (err)
+             {
                 reject ('unable to read file');
             }
-            else {
+            else
+             {
                 employees = JSON.parse(data);
             }
         })       
