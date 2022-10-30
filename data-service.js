@@ -90,11 +90,11 @@ exports.getEmployeeByStatus=(status) => {
     
 exports.getEmployeesByDepartment = (department) => {
     return new Promise ((resolve,reject) => {
-        var emp_department = employees.filter(employee => employee.department == department);        
-        if (emp_department.length == 0) {
+        var employee_department = employees.filter(employee => employee.department == department);        
+        if (employee_department.length == 0) {
             reject ('Department Does not exist');
         }
-        resolve(emp_department);
+        resolve(employee_department);
     })
 };
 
