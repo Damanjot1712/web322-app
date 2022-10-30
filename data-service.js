@@ -92,7 +92,7 @@ exports.getEmployeesByDepartment = (department) => {
     return new Promise ((resolve,reject) => {
         var employee_department = employees.filter(employee => employee.department == department);        
         if (employee_department.length == 0) {
-            reject ('Department Does not exist');
+            reject ('Department does not exist!!');
         }
         resolve(employee_department);
     })
