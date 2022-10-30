@@ -61,4 +61,40 @@ exports.getManagers = () => {
 };
 
 
+exports.addEmployee = (employeeData) => 
+{
+    employeeData.isManager== false ? employeeData.isManager = undefined : employeeData.isManager = true;
+    employeeData.employeeNum = employees.length + 1;
+    employees.push(employeeData);
+}
+
+exports.getEmployeesByManager = (manager) => {
+    return new Promise ((resolve,reject) => {
+        var employee_manager = employees.filter(employee => employee.employeeManagerNum == manager);
+        if (employee_manager.length == 0) {
+            reject('This Manager Does not Exist!!');
+        }
+        resolve(employee_manager);
+    })
+};
+
+exports.getEmployeeByStatus=(status) => {
+    return new Promise((resolve,reject) => {
+        var employee_status = employees.filter(employee => employee.status == status);
+        if (employee_status.length == 0) {
+            reject('Results Not Found ! 404');
+        }
+        resolve(employee_status);
+    })
+};
+    
+exports.getEmployeesByDepartment = (department) => {
+    return new Promise ((resolve,reject) => {
+        var emp_department = employees.filter(employee => employee.department == department);        
+        if (emp_department.length == 0) {
+            reject ('Department Does not exist');
+        }
+        resolve(emp_department);
+    })
+};
 
