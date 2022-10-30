@@ -10,13 +10,13 @@
 * ______https://navy-blue-bison-sari.cyclic.app____________________
 *
 ********************************************************************************/
-var HTTP_PORT = process.env.PORT || 8080;
-var express = require("express");
-var app = express();
-const fs = require('fs');
+const HTTP_PORT = process.env.PORT || 8080;
+const express = require('express');
+const path = require('path');
 const multer = require('multer');
-var path = require('path');
-var dataservice = require(__dirname + "/data-service.js");
+const fs = require('fs');
+const app = express();
+const dataservice = require(__dirname + "/data-service.js");
 
 const storage = multer.diskStorage({
     destination: "./public/images/uploaded",
